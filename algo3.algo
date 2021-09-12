@@ -1,0 +1,63 @@
+PROCEDURE DOTPRODUCT(Var v1,v2 : ARRAY_OF FLOAT[])
+VAR
+    produit:FLOAT;
+BEGIN
+    produit=0;
+    FOR i FROM 0 TO v1.length   DO
+        FOR j FROM 0 TO v2.length STEP step  DO
+            produit+=v1[i]v2[j]
+        END_FOR
+
+    END_FOR
+    Write (produit)
+END
+
+
+
+PROCEDURE are_orthogonal(v1,v2 : ARRAY_OF FLOAT[])
+VAR
+    orthogonal:BOOLEAN;
+BEGIN
+    IF (DOTPRODUCT(v1,v2)=0) THEN
+        orthogonal=true;
+    ELSE
+        orthogonal=false;
+    END_IF
+    Write(orthogonal)
+END
+
+
+
+FUNCTION Dot-Product(v1,v2 : ARRAY_OF FLOAT[]) : FLOAT
+VAR
+    produit:FLOAT;
+BEGIN
+    produit=0;
+    FOR i FROM 0 TO v1.length   DO
+        FOR j FROM 0 TO v2.length STEP step  DO
+            produit+=v1[i]v2[j]
+        END_FOR
+
+    END_FOR
+    RETURN produit;
+END
+
+
+
+
+ALGORITHM produit vectorielle
+VAR
+    v1,v2,v3,v4,v5,v6: ARRAY_OF FLOAT[];
+BEGIN
+    v1:={1,2};
+    v2:={-1,2};
+    v3:={0,6};
+    v4:={3,4}
+    v5:={-3,4}
+    v6:={-8,7}
+    DOTPRODUCT(v1,v2);
+    are_orthogonal(v1,v2)
+    are_orthogonal(v4,v5)
+    are_orthogonal(v3,v6)
+
+END
